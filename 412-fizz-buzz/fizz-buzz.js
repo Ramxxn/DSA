@@ -3,7 +3,11 @@
  * @return {string[]}
  */
 var fizzBuzz = function (n) {
-
+    // Validation
+    if( !Number.isInteger(n) || n <= 0){
+        throw new Error("Input must be a positive integer")
+    }
+    
     let answer = new Array(n)
 
     for (let i = 1; i <= n; i++) {
