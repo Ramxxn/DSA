@@ -3,12 +3,12 @@
  * @return {boolean}
  */
 var isPalindrome = function (x) {
+    if(!Number.isInteger(x)){
+        throw new Error("Input must be an integer")
+    }
+
     let str1 = String(x)
     let str2 = String(x).split("").reverse().join("");
 
-    if (str1 == str2) {
-        return true;
-    } else {
-        return false
-    }
+    return str1 === str2
 };
