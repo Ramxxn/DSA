@@ -5,6 +5,9 @@
 
 
 var isValid = function (s) {
+
+    // validation is important for real world solution
+
     let bracketArray = []
     let bracket = {
         "(" : ")",
