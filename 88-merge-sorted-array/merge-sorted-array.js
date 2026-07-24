@@ -5,26 +5,21 @@
  * @param {number} n
  * @return {void}
  */
- 
-var merge = function(nums1, m, nums2, n) {
-    let a = m - 1;
-    let b = n - 1;
-    let c = m + n - 1;
 
-    while (a >= 0 && b >= 0) {
-        if (nums1[a] > nums2[b]) {
-            nums1[c] = nums1[a];
-            a--;
+var merge = function (nums1, m, nums2, n) {
+    let nums1CurrentLastIndex = m - 1;
+    let nums2CurrentLastIndex = n - 1;
+    let combineNums1LastIndex = m + n - 1;
+
+    while (nums2CurrentLastIndex >= 0) {
+        if (nums1CurrentLastIndex >= 0 && nums1[nums1CurrentLastIndex] > nums2[nums2CurrentLastIndex]) {
+            nums1[combineNums1LastIndex] = nums1[nums1CurrentLastIndex];
+            nums1CurrentLastIndex--;
         } else {
-            nums1[c] = nums2[b];
-            b--;
+            nums1[combineNums1LastIndex] = nums2[nums2CurrentLastIndex];
+            nums2CurrentLastIndex--;
         }
-        c--;
+        combineNums1LastIndex--;
     }
 
-    while (b >= 0) {
-        nums1[c] = nums2[b];
-        b--;
-        c--;
-    }
 };
