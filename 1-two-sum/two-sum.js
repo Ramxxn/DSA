@@ -5,14 +5,15 @@
  */
 var twoSum = function (nums, target) {
     // use validator to make sure the input is valid.
-    let ans = []
+
+    let map = new Map()
 
     for (let i = 0; i < nums.length; i++) {
-        for (let j = i + 1; j < nums.length; j++) {
-            if (nums[i] + nums[j] === target) {
-                ans.push(i, j)
-                return ans
-            }
+        let calc = target - nums[i]
+        if (map.has(calc)) {
+            return [map.get(calc), i]
         }
+
+        map.set(nums[i], i)
     }
 };
