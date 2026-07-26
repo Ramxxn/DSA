@@ -4,10 +4,15 @@
  */
 var containsDuplicate = function (nums) {
     //Validator to check input is nums array
-    let set = new Set(nums)
 
-    if (nums.length != set.size) {
-        return true
+    let set = new Set()
+
+    for (let i = 0; i < nums.length; i++) {
+        if (set.has(nums[i])) {
+            return true
+        }
+        set.add(nums[i])
     }
+
     return false;
 };
