@@ -3,17 +3,13 @@
  * @return {number}
  */
 var singleNumber = function (nums) {
-    //Validator for correct input
+    //Validation for correct input alway better option.
 
-    let set = new Set()
+    let uniqueNumber = 0;
 
     for (let i = 0; i < nums.length; i++) {
-        if (set.has(nums[i])) {
-            set.delete(nums[i])
-        } else {
-            set.add(nums[i])
-        }
+        uniqueNumber = uniqueNumber ^ nums[i]
     }
 
-    return [...set][0]
+    return uniqueNumber
 };
