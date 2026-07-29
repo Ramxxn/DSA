@@ -4,23 +4,23 @@
  */
 var majorityElement = function (nums) {
 
-    let candidate;
-    let count = 0
+    if (nums.length === 0) return null;
+    // validation for correct input
+
+
+    const limit = Math.floor(nums.length / 2)
+    let map = new Map()
 
     for (let i = 0; i < nums.length; i++) {
-
-        if (count === 0) {
-            candidate = nums[i]
-        }
-
-        if (nums[i] === candidate) {
-            count++
+        if (!map.has(nums[i])) {
+            map.set(nums[i], 1)
         } else {
-            count--
+            map.set(nums[i], map.get(nums[i]) + 1)
         }
 
+        if (map.get(nums[i]) > limit) {
+            return nums[i]
+        }
     }
-
-    return candidate
 
 };
