@@ -9,19 +9,22 @@ var reverse = function (x) {
 
     const MIN = -2147483648;
     const MAX = 2147483647;
-    let output = ""
+
     let sign = x < 0 ? -1 : 1
-    let value = String(Math.abs(x))
+    let number = Math.abs(x)
 
-    for (let i = value.length - 1; i >= 0; i--) {
-        output += value[i]
+    let result = 0
+
+    while (number !== 0) {
+        let lastDigit = number % 10;
+        number = Math.floor(number / 10)
+
+        result = result * 10 + lastDigit
     }
 
-    let overflowCheck = output * sign
-
-    if (overflowCheck > MAX || overflowCheck < MIN ){
-        return 0
-    }else{
-        return overflowCheck
+    if(result >  MAX || result < MIN){
+        return 0;
     }
+
+    return result * sign
 };
