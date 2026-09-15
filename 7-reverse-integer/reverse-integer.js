@@ -3,8 +3,6 @@
  * @return {number}
  */
 
-//  overflow ? 0 : reverse case is still incomplete
-
 var reverse = function (x) {
 
     const MIN = Math.pow(-2, 31);
