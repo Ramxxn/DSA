@@ -7,8 +7,8 @@
 
 var reverse = function (x) {
 
-    const MIN = -2147483648;
-    const MAX = 2147483647;
+    const MIN = Math.pow(-2, 31);
+    const MAX = Math.pow(2, 31) -1;
 
     let sign = x < 0 ? -1 : 1
     let number = Math.abs(x)
