@@ -3,14 +3,18 @@
  * @return {number}
  */
 var lengthOfLastWord = function (s) {
-    let word = s.trim()
+    let i = s.length - 1
     let count = 0
-    for (let i = word.length - 1; i >= 0; i--) {
-        if (word[i] === " "){
-            return count
-        }
-        count++
+
+    while(i >= 0 && s[i] === " "){
+        i--
     }
+
+    while(i >= 0 && s[i] !== " "){
+        count++
+        i--
+    }
+
 
     return count
 };
